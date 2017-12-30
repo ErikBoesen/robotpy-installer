@@ -41,11 +41,13 @@ logger = logging.getLogger('robotpy.installer')
 is_windows = hasattr(sys, 'getwindowsversion')
 
 _FEEDS = [
-    'https://www.tortall.net/~robotpy/feeds/2017',
-    'http://download.ni.com/ni-linux-rt/feeds/2016/arm/ipk/cortexa9-vfpv3',
+    'https://www.tortall.net/~robotpy/feeds/2018-dev',
+    'http://download.ni.com/ni-linux-rt/feeds/2017/arm/ipk/all',
+    'http://download.ni.com/ni-linux-rt/feeds/2017/arm/ipk/cortexa9-vfpv3',
+    'http://download.ni.com/ni-linux-rt/feeds/2017/arm/ipk/xilinx-zynq',
 ]
 
-_ROBORIO_IMAGE = "2017_v8"
+_ROBORIO_IMAGE = "2018_v16"
 
 
 def md5sum(fname):
@@ -777,7 +779,7 @@ class RobotpyInstaller(object):
     def _create_rpy_opkg_options(self, options):
         # Construct an appropriate line to install
         options.requirement = []
-        options.packages = ['python36', 'netconsole-host']
+        options.packages = ['python36']
         options.upgrade = True
 
         options.force_reinstall = False
